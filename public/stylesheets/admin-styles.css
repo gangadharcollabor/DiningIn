@@ -1,0 +1,36 @@
+﻿body {margin:0px; padding:0px; background-color:#fff; font-family: Arial, Helvetica, sans-serif; color:#000; font-weight:normal; font-size:12px; background-image:url(../images/main_bg.gif); background-repeat:repeat-x;}
+div,ul,ol,li,h1,h2,h3,h4,h5,h6,form,p,blockquote,input {margin: 0; padding: 0;}
+img{border:0; outline:0;}
+ul li{list-style: none;}
+form label {cursor: pointer; padding:0px;}
+input, select, textarea {padding:0px; }
+input.radio { padding:0px; margin:0px;}
+.clear{ clear:both;}
+a:link{ outline:none; font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#000;}
+a:visited{ outline:none; font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#000;}
+a:hover{ outline:none; font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#000;}
+
+h1 {font-family:Arial, Helvetica, sans-serif; font-size:30px; font-weight:normal; text-decoration:none; color:#003f8c; }
+h2 {font-family:Arial; font-size:22px; font-weight:bold; text-decoration:none; color:#000000; background:url(../images/h1-bg.gif) repeat-x left bottom; padding:0px 0px 10px 0px; margin:0px 20px 5px 10px;}
+
+#logo{  padding:10px 0 0 10px;}
+
+#top_menu{padding:0; margin:0; float:right; }
+#top_menu ul {padding:0; margin:0;}
+#top_menu ul li{ float:left; display:inline; padding:0; margin:0; padding-top:3px; color:#c6242d; background:url(../images/divider.png) no-repeat  ; padding:0px 10px 3px 10px;}
+#top_menu ul li a:link{  font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#c6242d; text-decoration:none;  display:block;}
+#top_menu ul li a:visited{ font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#c6242d; text-decoration:none;  display:block;}
+#top_menu ul li a:hover{ font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#134a98; text-decoration:none; display:block;}
+
+
+.site_bt_link:link{background:url(../images/bt_site.png) no-repeat left top; display:block; width:130px; height:30px; margin:0px; padding:5px 8px 8px 45px; text-align:left;font-size:18px; color:#004684;text-decoration:none;}
+.site_bt_link:visited{background:url(../images/bt_site.png) no-repeat left top; display:block; width:130px; height:30px; margin:0px; padding:5px 8px 8px 45px;text-decoration:none;font-size:18px; color:#004684;text-align:left;}
+.site_bt_link:hover{background:url(../images/bt_site-over.png) no-repeat left top; display:block; width:130px; height:30px; margin:0px; padding:5px 8px 8px 45px;text-decoration:none;font-size:18px; color:#000;}
+
+
+/*8-03-11*/
+
+.h_color{background-color:#ffffff;}
+.bg_color{ background:#c8252f;}
+
+/*8-03-11*/
