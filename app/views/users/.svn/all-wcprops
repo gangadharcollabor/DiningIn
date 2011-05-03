@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/repos/diningin/!svn/ver/98/app/views/users
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/diningin/!svn/ver/101/app/views/users/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/diningin/!svn/ver/101/app/views/users/index.html.erb
+END
+changepassword.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/diningin/!svn/ver/95/app/views/users/changepassword.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/diningin/!svn/ver/101/app/views/users/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/diningin/!svn/ver/40/app/views/users/show.html.erb
+END
+index.html.erb.bak
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/diningin/!svn/ver/98/app/views/users/index.html.erb.bak
+END

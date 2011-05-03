@@ -1,0 +1,147 @@
+
+
+<%= javascript_include_tag 'jquery-1.5.2.js', 'jquery.validate.js', 'application' %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  
+  $("#new_user").validate({
+	rules: {
+	"user[username]": {required: true},
+	"user[firstname]": {required: true},
+	"user[lastname]": {required: true},
+	"user[email]": {required: true, email: true},  
+	"user[password]": {required: true, minlength: 1},
+	"password_confirm": {required: true, equalTo: "#user_password"}
+	}
+	});
+  
+  $("#user_username").blur(function() {
+    //remove all the class add the messagebox classes and start fading
+    if ($(this).val()== "")
+    {
+		$("#msgbox").removeClass().text('').fadeIn("slow");
+		return;
+    }
+    $("#msgbox").removeClass().addClass('messagebox').text('Checking...').fadeIn("slow");
+    //check the username exists or not from ajax
+    $.post("/checkuser",{ user_username:$(this).val() } ,function(data) {
+      if(data=='true') { //if username not avaiable
+        $("#msgbox").fadeTo(200,0.1,function() { //start fading the messagebox
+          //add message and change the class of the box and start fading
+          $(this).html('User name already exists').addClass('messageboxerror').fadeTo(900,1);
+        });
+        } else {
+          $("#msgbox").fadeTo(200,0.1,function() {  //start fading the messagebox
+          //add message and change the class of the box and start fading
+          $(this).html('User name available to register').addClass('messageboxok').fadeTo(900,1);
+        });
+      }
+    });
+  });
+});
+
+</script>
+
+
+<%= form_for(@user) do |f| %>	
+
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+	
+	
+<table width="100%" border="0" cellspacing="0" cellpadding="6">
+    <tr><td height="15"></td></tr>
+  <tr>
+    <td colspan="4"><h2>Add User</h2></td>
+    </tr>
+    <tr>
+    <td height="20"></td>
+    </tr>
+    <tr>
+    <td align="right"class="brown_txt_m"><strong><span class="redstar">*</span> user name</strong></td>
+    <td>:</td>
+    <td colspan="2" align="left"><%= f.text_field :username, :class=>'textfield_b'%>
+     <span id="msgbox" style="display:none"></span>
+
+    
+    </td>
+    </tr>
+  <tr>
+    <td width="22%" align="right" valign="middle" class="brown_txt_m"><strong><span class="redstar">*</span> first name</strong></td>
+    <td width="2%">:</td>
+    <td colspan="2" align="left"><%= f.text_field :firstname, :class=>'textfield_b' %></td>
+    </tr>
+  <tr>
+    <td align="right"class="brown_txt_m"><strong><span class="redstar">*</span> last name</strong></td>
+    <td>:</td>
+    <td colspan="2" align="left"><%= f.text_field :lastname, :class=>'textfield_b' %></td>
+    </tr>
+  <tr>
+    <td align="right"class="brown_txt_m"><strong><span class="redstar">*</span> email</strong></td>
+    <td>:</td>
+    <td colspan="2" align="left"><%= f.text_field :email, :class=>'textfield_b' %></td>
+    </tr>
+  
+  <tr>
+    <td align="right"class="brown_txt_m"><strong><span class="redstar">*</span>  password</strong></td>
+    <td>:</td>
+    <td colspan="2" align="left"><%= f.password_field :password, :class=>'textfield_b' %></td>
+    </tr>
+	<tr>
+		<td align="right"class="brown_txt_m">
+			<strong>
+				<span class="redstar">*</span> Confirm Password
+			</strong>
+		</td>
+		<td>:</td>
+		<td colspan="2" align="left">
+			<input type="password" id="password_confirm" name="password_confirm"  class="textfield_b"/>
+		</td>
+	</tr>
+	
+  
+  
+  <tr>
+    <td align="right" class="brown_txt_m"><strong><span class="redstar">*</span> role</strong></td>
+    <td>:</td>
+    <td align="left"><%= f.select :role,options_for_select([['administrator', 'administrator'], ['onboarder','onboarder']]) %>
+    </td>
+    </tr>
+   
+  <tr>
+    <td align="right" class="brown_txt_m"><strong><span class="redstar">*</span> status</strong></td>
+    <td>:</td>
+    <td align="left">
+    <%= f.select :status,options_for_select([['active', 'active'], ['inactive','inactive']]) %>
+    </td>
+    </tr>
+  <tr>
+  
+   
+      
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2" align="left">
+		 <a class="squarebutton" href="/users" style="margin-left:6px;"  >
+			 <span>cancel</span></a> 
+		
+		
+		
+			<%= f.submit %>
+		</td>
+    </tr>
+  
+      </table>
+      
+<% end %>

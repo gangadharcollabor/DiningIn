@@ -1,0 +1,163 @@
+
+
+<%= javascript_include_tag  'jquery.tablesorter.min.js', 'application' %>
+<script type="text/javascript">
+
+	$(document).ready(function()
+	{
+		$("#tbluser").tablesorter();
+	}
+	);
+
+
+</script>
+	
+	
+
+<h2>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50%">Manage Users</td>
+<td>
+<table width="50%" border="0" align="right" cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><a class="squarebutton" href="users/new" style="margin-left:10px;"  ><span>Add User</span></a> <a class="squarebutton" href="#" style="margin-left:10px;" ><span>Search</span></a> <a class="squarebutton" href="#" style="margin-left:10px;" ><span>Filter</span></a></td>
+</tr>
+<tr><td height="10"></td></tr>
+<tr>
+<td valign="top">
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</h2>
+
+</td>
+</tr>
+<tr><td height="10"></td></tr>          
+          
+<tr>
+
+<td align="right"  valign="top" class="gry_clr" >
+<table width="50%" border="0" align="right" cellpadding="0" cellspacing="0">
+<tr><td height="10"></td></tr>
+<tr>
+<td colspan="2" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="67%" class="brown_txt_m" align="right">
+    	Stauts Filter by:
+    </td>
+    <td width="1%"></td>
+    <td width="18%">
+    	<select name="" id="" class="textselect_9">
+<option selected="selected" >Active</option>
+<option >Deactivated</option>
+<option >Pending</option>
+</select>
+    </td>
+    <td width="14%"></td>
+  </tr>
+</table>
+</td>
+</tr>
+<tr><td height="5"></td></tr>
+
+<tr>
+  <td>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+<tr>
+<td width="30%" align="right" valign="middle" class="brown_txt_m">Search by:</td>
+<td width="1%"></td>
+<td width="25%" valign="middle">
+<select name="" id="" class="textselect_9">
+<option selected="selected" >first Name</option>
+<option >last Name</option>
+<option >email</option>
+<option >role</option>
+<option >status</option>
+</select>
+
+</td>
+<td width="23%" valign="middle"><input type="text" name="" class="textfield_s2" /></td>
+<td width="10%" valign="top"><a class="squarebutton" href="#" style="margin-left:10px;" ><span>Go</span></a></td>
+<td width="11%"></td>
+</tr>
+
+
+</table>
+
+</td></tr>
+
+</table>
+</td>
+
+</tr>
+<tr>
+	<td height="15"></td>
+</tr>
+<tr>
+	<td height="20" align="center">
+
+<% if flash[:message] %>
+<%=flash[:message]%>
+<%end%>
+	</td>
+	
+</tr>
+<tr>
+	<td height="10"></td>
+</tr>
+	
+<tr>
+<td>
+<table id="tbluser" width="95%" border="0" cellspacing="0" cellpadding="6" align="center" class="tablesorter">
+	<thead>
+ 
+  <tr>
+	  
+<td width="14%" class="gren_clr-t">User Name</td>
+<td width="14%" class="gren_clr-t">First Name</td>
+<td width="14%" class="gren_clr-t">Last Name</td>
+<td width="18%" class="gren_clr-t">Email</td>
+<td width="14%" class="gren_clr-t">Role</td>
+<td width="10%" class="gren_clr-t">Status</td>
+<td width="10%" class="gren_clr-t"></td>
+
+</tr>
+ </thead>
+
+
+	<tbody>
+		<% @users.each do |user| %>
+
+		<tr>
+			<td class="light_gr_clr-1">
+				<%= user.username %>
+			</td>
+			<td class="light_gr_clr-1">
+				<%= user.firstname %>
+			</td>
+			<td class="light_gr_clr-1">
+				<%= user.lastname %>
+			</td>
+			<td class="light_gr_clr-1">
+				<%= user.email %>
+			</td>
+			<td class="light_gr_clr-1">
+				<%= user.role %>
+			</td>
+			<td class="light_gr_clr-1">
+				<%= user.status %>
+			</td>
+			<td class="light_gr_clr-1">
+				<%= link_to 'Edit', edit_user_path(user) %>
+			</td>
+		</tr>
+
+		<% end %>
+	</tbody>
+</table>
